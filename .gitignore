@@ -2,3 +2,9 @@ xampp/
 dashboard/
 webalizer/
 *.log
+node_modules/
+dist/
+.env
+.env.local
+.dev.vars
+frontend/.env
