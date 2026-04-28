@@ -1,0 +1,12 @@
+import { Navigate, useLocation } from 'react-router-dom';
+import { currentUser } from '../data/staticData.js';
+
+export default function ProtectedRoute({ children }) {
+  const location = useLocation();
+
+  if (!currentUser.isAuthenticated) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
+}
