@@ -51,13 +51,4 @@ Vite writes the production build to:
 frontend/dist
 ```
 
-## Cloudflare Pages Settings
 
-Use these settings when deploying from GitHub:
-
-```text
-Framework preset: Vite
-Root directory: frontend
-Build command: npm run build
-Build output directory: dist
-```
