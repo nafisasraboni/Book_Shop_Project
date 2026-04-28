@@ -25,15 +25,15 @@ export default function Cart() {
             <tbody>
               {items.map((item) => (
                 <tr key={item.id}>
-                  <td>
+                  <td data-label="Book">
                     <div className="table-product">
                       <img src={item.image} alt={`${item.title} cover`} />
                       <span>{item.title}</span>
                     </div>
                   </td>
-                  <td>{formatPrice(item.price)}</td>
-                  <td>{item.quantity}</td>
-                  <td>{formatPrice(item.price * item.quantity)}</td>
+                  <td data-label="Price">{formatPrice(item.price)}</td>
+                  <td data-label="Qty">{item.quantity}</td>
+                  <td data-label="Total">{formatPrice(item.price * item.quantity)}</td>
                 </tr>
               ))}
             </tbody>

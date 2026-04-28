@@ -20,11 +20,11 @@ export default function ManageOrders() {
           <tbody>
             {orders.map((order) => (
               <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.customer}</td>
-                <td>{order.email}</td>
-                <td>{order.date}</td>
-                <td>
+                <td data-label="Order ID">{order.id}</td>
+                <td data-label="Customer">{order.customer}</td>
+                <td data-label="Email">{order.email}</td>
+                <td data-label="Date">{order.date}</td>
+                <td data-label="Status">
                   <select defaultValue={order.status} aria-label={`Status for ${order.id}`}>
                     <option>Pending</option>
                     <option>Processing</option>
@@ -32,7 +32,7 @@ export default function ManageOrders() {
                     <option>Cancelled</option>
                   </select>
                 </td>
-                <td>${order.total.toFixed(2)}</td>
+                <td data-label="Total">${order.total.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>

@@ -27,16 +27,16 @@ export default function ManageProducts() {
           <tbody>
             {products.map((product) => (
               <tr key={product.id}>
-                <td>
+                <td data-label="Book">
                   <div className="table-product">
                     <img src={product.image} alt={`${product.title} cover`} />
                     <span>{product.title}</span>
                   </div>
                 </td>
-                <td>{product.category}</td>
-                <td>{formatPrice(product.price)}</td>
-                <td>{product.stock}</td>
-                <td>
+                <td data-label="Category">{product.category}</td>
+                <td data-label="Price">{formatPrice(product.price)}</td>
+                <td data-label="Stock">{product.stock}</td>
+                <td data-label="Action">
                   <Link className="table-link" to={`/admin/products/${product.id}/edit`}>
                     Edit
                   </Link>

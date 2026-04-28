@@ -19,13 +19,13 @@ export default function MyOrders() {
           <tbody>
             {orders.slice(0, 2).map((order) => (
               <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.date}</td>
-                <td>{order.items.join(', ')}</td>
-                <td>
+                <td data-label="Order ID">{order.id}</td>
+                <td data-label="Date">{order.date}</td>
+                <td data-label="Items">{order.items.join(', ')}</td>
+                <td data-label="Status">
                   <span className="status-pill">{order.status}</span>
                 </td>
-                <td>${order.total.toFixed(2)}</td>
+                <td data-label="Total">${order.total.toFixed(2)}</td>
               </tr>
             ))}
           </tbody>
