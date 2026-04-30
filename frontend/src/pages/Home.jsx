@@ -8,16 +8,15 @@ export default function Home() {
   const featuredProducts = products.slice(0, 4);
   const [showPopup, setShowPopup] = useState(false);
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    setShowPopup(true);
-  }, 800);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 800);
 
-  return () => clearTimeout(timer);
-}, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleClosePopup = () => {
-    localStorage.setItem('subscribePopupShown', 'true');
     setShowPopup(false);
   };
 
@@ -33,6 +32,7 @@ useEffect(() => {
             Browse programming guides, fiction, productivity titles, and practical reads from a
             simple book shop catalog.
           </p>
+
           <div className="hero__actions">
             <Link className="button" to="/products">
               Shop Books
@@ -42,6 +42,7 @@ useEffect(() => {
             </Link>
           </div>
         </div>
+
         <div className="hero__shelf" aria-label="Featured book covers">
           {products.slice(0, 3).map((product) => (
             <img key={product.id} src={product.image} alt={`${product.title} cover`} />
@@ -57,6 +58,7 @@ useEffect(() => {
           </div>
           <Link to="/products">View all</Link>
         </div>
+
         <div className="product-grid">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
