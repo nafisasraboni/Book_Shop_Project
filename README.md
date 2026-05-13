@@ -25,12 +25,9 @@ No PHP files are required for deployment.
 4. Copy `frontend/.env.example` to `frontend/.env` and fill in the Firebase web app values.
 5. Set `VITE_ADMIN_EMAILS` to a comma-separated list of Google account emails that should see admin pages.
 
-For production Google sign-in, `VITE_FIREBASE_AUTH_DOMAIN` is set to
-`book-shop-project.sraboni.dev` so the Google account picker does not show the default
-`firebaseapp.com` project domain. The Cloudflare Pages function at `functions/__/auth/[[path]].js`
-proxies Firebase Auth helper requests for that custom auth domain. Add
-`book-shop-project.sraboni.dev` in Firebase Authentication authorized domains and allow
-`https://book-shop-project.sraboni.dev/__/auth/handler` in the Google OAuth client.
+Firebase Auth uses the Firebase project auth domain for the Google popup. Keeping the
+default `firebaseapp.com` auth domain is the stable setup for Google sign-in on this
+deployment.
 
 ## Local Setup
 
