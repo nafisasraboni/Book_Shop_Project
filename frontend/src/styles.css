@@ -155,9 +155,12 @@ main {
 
 .nav-links a,
 .nav-actions a,
+.nav-actions button,
 .admin-strip a {
   padding: 9px 10px;
+  border: 0;
   border-radius: 6px;
+  background: transparent;
   color: #34443f;
   font-size: 0.95rem;
   font-weight: 700;
@@ -168,9 +171,14 @@ main {
 .admin-strip a.active,
 .nav-links a:hover,
 .nav-actions a:hover,
+.nav-actions button:hover,
 .admin-strip a:hover {
   background: #e8ddc5;
   color: #183a31;
+}
+
+.nav-action-button {
+  line-height: 1.2;
 }
 
 .cart-link {
@@ -397,6 +405,12 @@ main {
 .button:hover {
   background: #9c4528;
   border-color: #9c4528;
+}
+
+.button:disabled,
+.nav-action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 
 .button--ghost {
@@ -709,9 +723,53 @@ select:focus {
   color: #52615b;
 }
 
+.auth-card__text {
+  line-height: 1.65;
+}
+
 .auth-card a {
   color: #a34f2c;
   font-weight: 800;
+}
+
+.google-auth-button {
+  gap: 10px;
+  background: #fffefa;
+  border-color: #d2c3a8;
+  color: #24312d;
+}
+
+.google-auth-button:hover:not(:disabled) {
+  background: #f2ead8;
+  border-color: #b5552f;
+  color: #24312d;
+}
+
+.google-mark {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #d2c3a8;
+  border-radius: 50%;
+  background: #fff;
+  color: #3367d6;
+  font-weight: 900;
+}
+
+.form-alert {
+  padding: 12px;
+  border-radius: 6px;
+  background: #efe6d0;
+  color: #4f4535;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.form-alert--error {
+  background: #f7dfd7;
+  color: #7a2f21;
 }
 
 .success-box {
@@ -870,6 +928,7 @@ select:focus {
 
   .nav-links a,
   .nav-actions a,
+  .nav-actions button,
   .admin-strip a {
     width: 100%;
     text-align: left;
@@ -982,6 +1041,7 @@ select:focus {
 
   .nav-links a,
   .nav-actions a,
+  .nav-actions button,
   .admin-strip a {
     flex: 1 1 auto;
     text-align: center;

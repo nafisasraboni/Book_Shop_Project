@@ -1,11 +1,3 @@
-export const currentUser = {
-  id: 1,
-  name: 'Admin Reader',
-  email: 'admin@bookshop.test',
-  role: 'admin',
-  isAuthenticated: true,
-};
-
 export const products = [
   {
     id: 'clean-code',

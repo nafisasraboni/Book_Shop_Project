@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { currentUser, getCartProducts } from '../data/staticData.js';
+import { useAuth } from '../context/AuthContext.jsx';
+import { getCartProducts } from '../data/staticData.js';
 
 const customerLinks = [
   { to: '/', label: 'Home' },
@@ -18,14 +19,21 @@ const adminLinks = [
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAdmin, isAuthenticated, isLoading, logout, user } = useAuth();
   const cartCount = getCartProducts().reduce((total, item) => total + item.quantity, 0);
   const closeMenu = () => setIsMenuOpen(false);
+  const accountLabel = isLoading ? 'Checking account...' : user?.email || 'Guest';
+
+  const handleLogout = async () => {
+    await logout();
+    closeMenu();
+  };
 
   return (
     <header className={`site-header${isMenuOpen ? ' site-header--open' : ''}`}>
       <div className="top-strip">
         <span>Welcome to Online Book Store</span>
-        <span>{currentUser.isAuthenticated ? currentUser.email : 'Guest'}</span>
+        <span>{accountLabel}</span>
       </div>
       <nav className="navbar" aria-label="Primary navigation">
         <Link className="brand" to="/" onClick={closeMenu}>
@@ -58,21 +66,31 @@ export default function Navbar() {
           <NavLink className="cart-link" to="/cart" onClick={closeMenu}>
             Cart <span>{cartCount}</span>
           </NavLink>
-          <NavLink to="/login" onClick={closeMenu}>
-            Login
-          </NavLink>
-          <NavLink to="/register" onClick={closeMenu}>
-            Register
-          </NavLink>
+          {isAuthenticated ? (
+            <button className="nav-action-button" type="button" onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <>
+              <NavLink to="/login" onClick={closeMenu}>
+                Login
+              </NavLink>
+              <NavLink to="/register" onClick={closeMenu}>
+                Register
+              </NavLink>
+            </>
+          )}
         </div>
       </nav>
-      <div className="admin-strip" aria-label="Admin navigation">
-        {adminLinks.map((link) => (
-          <NavLink key={link.to} to={link.to} end={link.to === '/admin'} onClick={closeMenu}>
-            {link.label}
-          </NavLink>
-        ))}
-      </div>
+      {isAdmin && (
+        <div className="admin-strip" aria-label="Admin navigation">
+          {adminLinks.map((link) => (
+            <NavLink key={link.to} to={link.to} end={link.to === '/admin'} onClick={closeMenu}>
+              {link.label}
+            </NavLink>
+          ))}
+        </div>
+      )}
     </header>
   );
 }

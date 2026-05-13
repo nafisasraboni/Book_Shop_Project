@@ -1,26 +1,16 @@
-import { Link } from 'react-router-dom';
+import GoogleAuthCard from '../components/GoogleAuthCard.jsx';
 
 export default function Login() {
   return (
     <section className="auth-page">
-      <form className="auth-card">
-        <p className="eyebrow">Login</p>
-        <h1>Customer Login</h1>
-        <label>
-          Email
-          <input type="email" placeholder="you@example.com" />
-        </label>
-        <label>
-          Password
-          <input type="password" placeholder="Password" />
-        </label>
-        <button className="button" type="button">
-          Login
-        </button>
-        <p>
-          New customer? <Link to="/register">Create an account</Link>
-        </p>
-      </form>
+      <GoogleAuthCard
+        eyebrow="Login"
+        title="Customer Login"
+        description="Use your Google account to continue to Book Shop."
+        footerText="New customer?"
+        footerLink="/register"
+        footerLinkLabel="Create an account"
+      />
     </section>
   );
 }

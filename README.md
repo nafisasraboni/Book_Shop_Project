@@ -1,12 +1,6 @@
 # Book Shop Project
 
-Basic React + Vite frontend for the Book Shop Project.
-
-The current Home page says:
-
-```text
-Book Shop Project is live. Features are coming soon.
-```
+React + Vite frontend for the Book Shop Project with Firebase Google sign-in.
 
 ## Project Structure
 
@@ -19,14 +13,17 @@ frontend/
   index.html
   package.json
   vite.config.js
-
-database/
-  schema.sql
-  rls-policies.sql
-  seed.sql
 ```
 
 No PHP files are required for deployment.
+
+## Firebase Auth Setup
+
+1. Create a Firebase web app from the Firebase console.
+2. Enable Authentication > Sign-in method > Google.
+3. Add your local and production domains to Authentication > Settings > Authorized domains.
+4. Copy `frontend/.env.example` to `frontend/.env` and fill in the Firebase web app values.
+5. Set `VITE_ADMIN_EMAILS` to a comma-separated list of Google account emails that should see admin pages.
 
 ## Local Setup
 
@@ -50,5 +47,4 @@ Vite writes the production build to:
 ```text
 frontend/dist
 ```
-
 
