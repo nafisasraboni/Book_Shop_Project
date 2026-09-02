@@ -2,8 +2,7 @@
 
 A modern full-stack book store application featuring an interactive catalog, admin management capabilities, and secure Google Authentication using Firebase.
 
-🔗 **Live Site:** https://sraboni.dev
-*(Note: Replace with your specific live deployment URL if different)*
+🔗 **Live Site:** https://book-shop-project.sraboni.dev
 
 ---
 
@@ -92,6 +91,6 @@ Book_Shop_Project/
 
 ## 🔗 Live & Relevant Links
 
-- **Live Site:** https://sraboni.dev
+- **Live Site:**https://book-shop-project.sraboni.dev
 - **GitHub Repository:** https://github.com/nafisasraboni/Book_Shop_Project
 - **Author Profile:** https://github.com/nafisasraboni
